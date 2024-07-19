@@ -41,7 +41,6 @@
 <body>
     <div class="container">
         <h2>Gerador de Links para o Telegram</h2>
-        <input type="text" id="phone" placeholder="Número de Telefone (com código do país)">
         <input type="text" id="message" placeholder="Mensagem">
         <button onclick="generateLink()">Gerar Link</button>
         <p id="link"></p>
@@ -49,7 +48,7 @@
 
     <script>
         function generateLink() {
-            const phone = document.getElementById('phone').value;
+            const phone = '5531989519772';
             const message = document.getElementById('message').value;
             const encodedMessage = encodeURIComponent(message);
             const link = `https://t.me/${phone}?text=${encodedMessage}`;
