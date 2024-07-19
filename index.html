@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Links para o Telegram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #007bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Gerador de Links para o Telegram</h2>
+        <input type="text" id="phone" placeholder="Número de Telefone (com código do país)">
+        <input type="text" id="message" placeholder="Mensagem">
+        <button onclick="generateLink()">Gerar Link</button>
+        <p id="link"></p>
+    </div>
+
+    <script>
+        function generateLink() {
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            const encodedMessage = encodeURIComponent(message);
+            const link = `https://t.me/${phone}?text=${encodedMessage}`;
+            document.getElementById('link').innerHTML = `<a href="${link}" target="_blank">${link}</a>`;
+        }
+    </script>
+</body>
+</html>
